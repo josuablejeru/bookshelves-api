@@ -10,7 +10,9 @@
     "test": "jest",
     "cdk": "cdk",
     "deploy": "tsc && cdk deploy",
-    "types:generate": "npx openapi-typescript ../openapi.yaml --output ./lambda/types.ts"
+    "deploy:all": "npm run types:generate && tsc && npm run package && cdk deploy",
+    "types:generate": "npx openapi-typescript ../openapi.yaml --output ./lambda/types.ts",
+    "package": "./scripts/package.sh"
   },
   "devDependencies": {
     "@types/jest": "^27.5.2",
