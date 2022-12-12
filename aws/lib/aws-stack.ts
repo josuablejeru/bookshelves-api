@@ -14,7 +14,7 @@ export class BookshelvesAPI extends cdk.Stack {
       integrations: [
         {
           operationId: 'getBookshelve',
-          handler: 'getBookshelve.handler'
+          handler: 'getBookshelveBooks.handler'
         }
       ]
     })

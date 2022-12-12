@@ -15,13 +15,13 @@ tags:
   - name: bookshelve
     description: everything related to a bookshelve
 paths:
-  /bookshelve:
+  /bookshelve/books:
     get:
       tags:
         - bookshelve
       summary: get my public bookshelve
       description: Returns a collection of books I found valuable
-      operationId: getBookshelve
+      operationId: getBookshelveBooks
       responses:
         "200":
           description: successful operation
