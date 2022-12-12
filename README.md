@@ -9,3 +9,4 @@ Books you want to share on your personal website or any other place.
 
 - extract the user ID and Bookshelves ID from the ULR you see in the URL bar.
 It should look like this `https://books.google.com/books?uid=<your-user-id>&as_coll=<bookshelves-id>&source=gbs_lp_bookshelf_list`
+- export `USER_ID` and `BOOKSHELVE_ID` to your enviroment
