@@ -2,8 +2,14 @@ import * as cdk from 'aws-cdk-lib';
 import { HttpOpenApi } from 'cdk-http-openapi';
 import { Construct } from 'constructs';
 
+interface BookshelvesAPIProps extends cdk.StackProps {
+  bookshelveId: string,
+  userId: string
+}
+
+
 export class BookshelvesAPI extends cdk.Stack {
-  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+  constructor(scope: Construct, id: string, props: BookshelvesAPIProps) {
     super(scope, id, props);
 
     const api = new HttpOpenApi(this, 'BookshelvesAPI', {
@@ -13,8 +19,12 @@ export class BookshelvesAPI extends cdk.Stack {
       lambdasSourcePath: '.build/lambda',
       integrations: [
         {
-          operationId: 'getBookshelve',
-          handler: 'getBookshelveBooks.handler'
+          operationId: 'getBookshelveBooks',
+          handler: 'getBookshelveBooks.handler',
+          env: {
+            BOOKSHELVE_ID: props?.bookshelveId,
+            USER_ID: props?.userId,
+          }
         }
       ]
     })

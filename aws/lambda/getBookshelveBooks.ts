@@ -1,13 +1,19 @@
+import { toApiResult } from './utils'
+import { APIGatewayEvent } from 'aws-lambda'
+import { getBooksClient } from './clients/books'
+import { AxiosInstance } from 'axios'
+import { getBooksConfig } from './config'
 
 
-export const handler = async (event: any, context: any, callback: any) => {
+export const handler = async (event: APIGatewayEvent) => {
+  const bookClient = getBooksClient()
+  const booksConfig = getBooksConfig()
 
-  console.log("test")
+  const result = await getBooksFromBookshelve(bookClient, booksConfig.USER_ID, booksConfig.BOOKSHELVE_ID)
 
-  return {
-    statusCode: 200,
-    body: JSON.stringify({
-      message: 'hello world',
-    }),
-  };
+  return toApiResult(200, { result: result?.data?.items })
+}
+
+const getBooksFromBookshelve = async (client: AxiosInstance, userId: bigint, bookshelveId: number) => {
+  return client.get(`/users/${userId}/bookshelves/${bookshelveId}/volumes`)
 }

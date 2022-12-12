@@ -5,12 +5,12 @@
 
 
 export interface paths {
-  "/bookshelve": {
+  "/bookshelve/books": {
     /**
      * get my public bookshelve 
      * @description Returns a collection of books I found valuable
      */
-    get: operations["getBookshelve"];
+    get: operations["getBookshelveBooks"];
   };
 }
 
@@ -82,7 +82,7 @@ export type external = Record<string, never>;
 
 export interface operations {
 
-  getBookshelve: {
+  getBookshelveBooks: {
     /**
      * get my public bookshelve 
      * @description Returns a collection of books I found valuable
