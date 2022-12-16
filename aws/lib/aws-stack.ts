@@ -20,7 +20,7 @@ export class BookshelvesAPI extends cdk.Stack {
       integrations: [
         {
           operationId: 'getBookshelveBooks',
-          handler: 'getBookshelveBooks.handler',
+          handler: 'getBookshelveBooksHandler.handler',
           env: {
             BOOKSHELVE_ID: props?.bookshelveId,
             USER_ID: props?.userId,
