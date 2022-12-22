@@ -12,9 +12,9 @@ export const handler = async () => {
 
   const rawBooksApiResult = await getBooksFromBookshelve(bookClient, booksConfig.USER_ID, booksConfig.BOOKSHELVE_ID)
 
-  const mappedData = rawBooksApiResult.data?.items.map((bookentry: Record<string, any>) => toBookResponse(bookentry))
+  const mappedData = rawBooksApiResult.data?.items.map((bookentry: Record<string, any>) => (toBookResponse(bookentry)))
 
-  const lambdaResponse: BookResponse = { response: mappedData }
+  const lambdaResponse: BookResponse = { response: mappedData || [] }
 
   return toApiResult(200, lambdaResponse)
 }

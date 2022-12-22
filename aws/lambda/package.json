@@ -14,5 +14,8 @@
     "@types/aws-lambda": "^8.10.109",
     "axios": "^1.2.1",
     "@types/axios": "0.14.0"
+  },
+  "devDependencies": {
+    "jest-mock-axios": "4.7.0-beta2"
   }
 }
