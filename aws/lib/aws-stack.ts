@@ -25,6 +25,10 @@ export class BookshelvesAPI extends cdk.Stack {
             BOOKSHELVE_ID: props?.bookshelveId,
             USER_ID: props?.userId,
           }
+        },
+        {
+          operationId: 'getOpenapiDefinition',
+          handler: 'getOpenapiDefinition.handler',
         }
       ]
     })

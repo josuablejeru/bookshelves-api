@@ -12,6 +12,10 @@ export interface paths {
      */
     get: operations["getBookshelveBooks"];
   };
+  "/openapi": {
+    /** @description Returns this openapi definition to be use by external services */
+    get: operations["getOpenapiDefinition"];
+  };
 }
 
 export type webhooks = Record<string, never>;
@@ -92,6 +96,17 @@ export interface operations {
       200: {
         content: {
           "application/json": components["schemas"]["BookResponse"];
+        };
+      };
+    };
+  };
+  getOpenapiDefinition: {
+    /** @description Returns this openapi definition to be use by external services */
+    responses: {
+      /** @description return openapi definition as JSON */
+      200: {
+        content: {
+          "application/json": Record<string, never>;
         };
       };
     };

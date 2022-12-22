@@ -12,13 +12,13 @@ info:
 servers:
   - url: "<API-GATEWAY-URL>"
 tags:
-  - name: bookshelve
-    description: everything related to a bookshelve
+  - name: books
+    description: everything related to books
 paths:
   /bookshelve/books:
     get:
       tags:
-        - bookshelve
+        - books
       summary: get my public bookshelve
       description: Returns a collection of books I found valuable
       operationId: getBookshelveBooks
@@ -29,6 +29,18 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/BookResponse"
+
+  /openapi:
+    get:
+      summery: the openapi definition of this api
+      description: Returns this openapi definition to be used by external services
+      operationId: getOpenapiDefinition
+      responses:
+        "200":
+          description: return openapi definition as JSON
+          content:
+            application/json:
+              schema: {}
 
 components:
   schemas:

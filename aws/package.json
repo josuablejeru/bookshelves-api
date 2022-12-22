@@ -11,8 +11,9 @@
     "test:watch": "jest --watchAll",
     "cdk": "cdk",
     "deploy": "tsc && cdk deploy",
-    "deploy:all": "npm run types:generate && tsc && npm run package && cdk deploy --all --require-approval never",
-    "types:generate": "npx openapi-typescript ../openapi.yaml --output ./lambda/generated/types.ts",
+    "deploy:all": "npm run openapi:generate:json && npm run openapi:generate:types && tsc && npm run package && cdk deploy --all --require-approval never",
+    "openapi:generate:types": "npx openapi-typescript ../openapi.yaml --output ./lambda/generated/types.ts",
+    "openapi:generate:json": "npx yaml-convert --input ../openapi.yaml --output lambda/generated/openapi.json",
     "package": "./scripts/package.sh"
   },
   "devDependencies": {
