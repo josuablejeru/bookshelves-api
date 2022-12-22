@@ -30,9 +30,9 @@ paths:
               schema:
                 $ref: "#/components/schemas/BookResponse"
 
-  /openapi:
+  /openapi.json:
     get:
-      summery: the openapi definition of this api
+      summary: the openapi definition of this api
       description: Returns this openapi definition to be used by external services
       operationId: getOpenapiDefinition
       responses:
