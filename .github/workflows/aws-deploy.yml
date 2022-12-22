@@ -24,12 +24,15 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
           aws-region: 'eu-central-1'
-      - name: Install dependencies
+      - name: Install dependencies (CDK)
         working-directory: aws
+        run: npm i
+      - name: Install dependencies (Lambda)
+        working-directory: aws/lambda
         run: npm i
       - name: Synth stack
         working-directory: aws
-        run: npm cdk synth
+        run: npm run cdk synth
       - name: Deploy stack
         working-directory: aws
-        run: npm cdk deploy --all --require-approval never
+        run: npm run deploy:all
