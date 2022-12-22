@@ -11,6 +11,9 @@
 	},
 	"mounts": [
 		"source=${env:HOME}${env:USERPROFILE}/.aws,target=/home/node/.aws/,type=bind"
+	],
+	"extensions": [
+		"firsttris.vscode-jest-runner"
 	]
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
