@@ -8,6 +8,7 @@ node_modules
 cdk.out
 
 .build/
+generated/
 
 .env
 .envrc
