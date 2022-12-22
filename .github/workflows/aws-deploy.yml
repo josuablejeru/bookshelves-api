@@ -10,7 +10,7 @@ jobs:
   aws_cdk:
     runs-on: ubuntu-latest
     env:
-      BOOKSHELVE_ID: ${{ secrets.BOOKSHELVE_ID }}
+      BOOKSHELF_ID: ${{ secrets.BOOKSHELF_ID }}
       USER_ID: ${{ secrets.USER_ID }}
     steps:
       - name: Checkout repo
@@ -23,7 +23,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
-          aws-region: 'eu-central-1'
+          aws-region: "eu-central-1"
       - name: Install dependencies (CDK)
         working-directory: aws
         run: npm i
