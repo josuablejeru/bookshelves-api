@@ -6,6 +6,6 @@ import { BookshelvesAPI } from '../lib/aws-stack';
 const app = new cdk.App();
 new BookshelvesAPI(app, 'BookshelvesAPI', {
   stackName: "BookshelvesAPI",
-  bookshelveId: process.env.BOOKSHELVE_ID || '',
+  bookshelfId: process.env.BOOKSHELF_ID || '',
   userId: process.env.USER_ID || ''
 });

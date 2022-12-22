@@ -3,7 +3,7 @@ import { HttpOpenApi } from 'cdk-http-openapi';
 import { Construct } from 'constructs';
 
 interface BookshelvesAPIProps extends cdk.StackProps {
-  bookshelveId: string,
+  bookshelfId: string,
   userId: string
 }
 
@@ -19,10 +19,10 @@ export class BookshelvesAPI extends cdk.Stack {
       lambdasSourcePath: '.build/lambda',
       integrations: [
         {
-          operationId: 'getBookshelveBooks',
-          handler: 'getBookshelveBooksHandler.handler',
+          operationId: 'getBookshelfBooks',
+          handler: 'getBookshelfBooksHandler.handler',
           env: {
-            BOOKSHELVE_ID: props?.bookshelveId,
+            BOOKSHELF_ID: props?.bookshelfId,
             USER_ID: props?.userId,
           }
         },

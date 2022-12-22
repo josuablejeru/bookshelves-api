@@ -5,15 +5,18 @@
 
 
 export interface paths {
-  "/bookshelve/books": {
+  "/bookshelf/books": {
     /**
-     * get my public bookshelve 
+     * get my public bookshelf 
      * @description Returns a collection of books I found valuable
      */
-    get: operations["getBookshelveBooks"];
+    get: operations["getBookshelfBooks"];
   };
-  "/openapi": {
-    /** @description Returns this openapi definition to be use by external services */
+  "/openapi.json": {
+    /**
+     * the openapi definition of this api 
+     * @description Returns this openapi definition to be used by external services
+     */
     get: operations["getOpenapiDefinition"];
   };
 }
@@ -86,9 +89,9 @@ export type external = Record<string, never>;
 
 export interface operations {
 
-  getBookshelveBooks: {
+  getBookshelfBooks: {
     /**
-     * get my public bookshelve 
+     * get my public bookshelf 
      * @description Returns a collection of books I found valuable
      */
     responses: {
@@ -101,7 +104,10 @@ export interface operations {
     };
   };
   getOpenapiDefinition: {
-    /** @description Returns this openapi definition to be use by external services */
+    /**
+     * the openapi definition of this api 
+     * @description Returns this openapi definition to be used by external services
+     */
     responses: {
       /** @description return openapi definition as JSON */
       200: {
