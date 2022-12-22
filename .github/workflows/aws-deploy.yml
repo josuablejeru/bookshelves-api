@@ -30,9 +30,6 @@ jobs:
       - name: Install dependencies (Lambda)
         working-directory: aws/lambda
         run: npm i
-      - name: Synth stack
-        working-directory: aws
-        run: npm run cdk synth
       - name: Deploy stack
         working-directory: aws
         run: npm run deploy:all
