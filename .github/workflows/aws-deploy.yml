@@ -2,8 +2,9 @@ name: Deploy on AWS
 
 on:
   push:
-    branches: [ main ]
-  workflow_dispatch: []
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
   aws_cdk:
