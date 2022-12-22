@@ -8,7 +8,7 @@
     "build": "tsc",
     "watch": "tsc -w",
     "test": "jest",
-    "test:watch": "jest --watch",
+    "test:watch": "jest --watchAll",
     "cdk": "cdk",
     "deploy": "tsc && cdk deploy",
     "deploy:all": "npm run types:generate && tsc && npm run package && cdk deploy",
