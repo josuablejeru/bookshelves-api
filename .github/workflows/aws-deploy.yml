@@ -15,8 +15,6 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
-        with:
-          path: aws/
       - uses: actions/setup-node@v2
         with:
           node-version: "14"
@@ -25,10 +23,13 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
-          aws-region: 'us-west-2'
+          aws-region: 'eu-central-1'
       - name: Install dependencies
+        working-directory: aws
         run: npm i
       - name: Synth stack
+        working-directory: aws
         run: npm cdk synth
       - name: Deploy stack
+        working-directory: aws
         run: npm cdk deploy --all --require-approval never
