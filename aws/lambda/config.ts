@@ -4,7 +4,7 @@ const booksConfig = {
 }
 
 export const getBooksConfig = () => {
-  if ((booksConfig.USER_ID && booksConfig.BOOKSHELVE_ID) === 0) {
+  if (booksConfig.USER_ID && booksConfig.BOOKSHELVE_ID === 0) {
     throw new Error(`Configs for bookshelve are wrong...`);
   }
 
